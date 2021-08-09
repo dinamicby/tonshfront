@@ -478,7 +478,7 @@ tbody tr{
     content: "NEXT";
     position: absolute;
 
-    bottom: -10px;
+    bottom: -13px;
     font-size: 8px;
     left: 17px;
   }
@@ -486,7 +486,7 @@ tbody tr{
     content: "PREV";
     position: absolute;
     top: auto;
-    bottom: -10px;
+    bottom: -13px;
     font-size: 8px;
     left: 17px;
   }
