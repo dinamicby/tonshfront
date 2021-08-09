@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+
+
+
+    <link rel="preload" href="./fonts/Mulish-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin="">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <link href="css/styles.css" rel="stylesheet">
+  </head>
+  <body>
+
+<main>
+
+  <div class="container">
+    <header class="d-flex flex-wrap justify-content-between">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+        <div class="logo">
+          <svg width="32" height="32" viewBox="0 0 460 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="logo-diamond" fill-rule="evenodd" clip-rule="evenodd" d="M166 152L295 152C299.564 152 304.124 152.67 308.89 154.892C314.604 157.555 317.633 161.753 319.755 164.857C319.921 165.098 320.075 165.347 320.218 165.602C322.714 170.044 324 174.841 324 180C324 184.902 322.834 190.243 320.218 194.898C320.193 194.943 320.168 194.987 320.142 195.031L238.642 335.031C236.845 338.118 233.537 340.013 229.965 340C226.392 339.987 223.098 338.07 221.322 334.97L141.318 195.268C141.295 195.23 141.272 195.192 141.249 195.154C139.418 192.137 136.587 187.471 136.092 181.45C135.637 175.913 136.881 170.365 139.663 165.555C142.445 160.744 146.634 156.898 151.671 154.544C157.073 152.02 162.548 152 166 152ZM220 172L166 172C162.452 172 161.09 172.218 160.138 172.663C158.822 173.278 157.716 174.289 156.976 175.567C156.237 176.846 155.903 178.328 156.025 179.811C156.095 180.662 156.441 181.634 158.485 185.006C158.528 185.077 158.57 185.148 158.611 185.22L220 292.416V172ZM240 172V292.945L302.811 185.05C303.52 183.762 304 181.901 304 180C304 178.458 303.681 177.119 302.966 175.738C302.216 174.66 301.759 174.089 301.377 173.698C301.049 173.364 300.797 173.185 300.441 173.019C298.956 172.327 297.436 172 295 172L240 172Z" fill="#303757"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M460 230C460 357.025 357.025 460 230 460C102.974 460 0 357.025 0 230C0 102.974 102.974 0 230 0C357.025 0 460 102.974 460 230ZM440 230C440 345.98 345.98 440 230 440C114.02 440 20 345.98 20 230C20 114.02 114.02 20 230 20C345.98 20 440 114.02 440 230Z" fill="#0088CC"/>
+          </svg>
+          <span class="logo">
+            TON.SH
+          </span>
+        </div>
+      </a>
+
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="#" class="nav-link" >Api</a></li>
+        <li class="nav-item"><a href="#" class="nav-link active">Explorer</a></li>
+      </ul>
+    </header>
+  <div class="address-container">
+
+
+<div class="row">
+  <div class="block-header">
+    <h1>Block<span class="btn btn-primary btn-sm block-btn">#13462985</span></h1>
+  </div>
+  <div class="col">
+
+    <dl class="row account-list">
+      <dt class="col-sm-4 col-md-2 col-lg-2 col-xl-2"><span  data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Current block hash" aria-label="Current block hash">Block Hash</span></dt>
+      <dd class="col-sm-8 col-md-10 col-lg-10 col-xl-10" onclick="copyAddress('spanaddress')">
+        <span data-clipboard-target="#address" class="copy" id="spanaddress" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Copy hash to clipboard" aria-label="Copy hash to clipboard">A+YDkouq58u6z8kclEKwW0UKZ8C52boerXWlw3PApRU= <img style="margin-bottom: 4px;" src="./images/copy.svg" /></span>
+      </dd>
+      </dd><dt class="col-sm-4 col-md-2 col-lg-2 col-xl-2">File Hash</dt>
+        <dd class="col-sm-8 col-md-10 col-lg-10 col-xl-10" onclick="copyAddress('spanhash')">
+          <span data-clipboard-target="#hash" class="copy" id="spanhash" data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Copy hash to clipboard" aria-label="Copy hash to clipboard">AFZD7VnP1br8WE5fsdAKRE87PaR5aniL36P/KMY/Qg8= <img style="margin-bottom: 4px;" src="./images/copy.svg" /></span>
+        </dd>
+      <dt class="col-sm-4 col-md-2 col-lg-2 col-xl-2">Shard</dt>
+      <dd class="col-sm-8 col-md-10 col-lg-10 col-xl-10">-9223372036854775808</dd>
+      <dt class="col-sm-4 col-md-2 col-lg-2 col-xl-2">Block Height</dt>
+      <dd class="col-sm-8 col-md-10 col-lg-10 col-xl-10">
+        13462985
+      </dd>
+
+    </dl>
+  </div>
+  <div class="col-md-2 block-pagination">
+    <a class="page-link up" href="#"><img src="images/arrow.svg"></a></li>
+    <a class="page-link down" href="#"><img src="images/arrow.svg"></a></li>
+
+  </div>
+</div>
+
+</div>
+</div>
+</main>
+
+    <input id="address" type="text" value="A+YDkouq58u6z8kclEKwW0UKZ8C52boerXWlw3PApRU="/>
+    <input id="hash" type="text" value="AFZD7VnP1br8WE5fsdAKRE87PaR5aniL36P/KMY/Qg8="/>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/clipboard.min.js"></script>
+    <script src="./js/easy.qrcode.min.js"></script>
+    <script>
+      new ClipboardJS('.copy');
+      var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+      function copyAddress(span) {
+        var addressSpan = document.getElementById(span);
+        var tooltip = bootstrap.Tooltip.getInstance(addressSpan)
+        addressSpan.setAttribute('data-bs-original-title', "Hash saved to clipboard")
+        tooltip.show()
+        setTimeout(function(){
+          addressSpan.setAttribute('data-bs-original-title', "Copy hash to clipboard")
+          tooltip.hide()
+        }, 2000)
+      }
+
+
+      // Options
+    	var options = {
+        colorDark : "#303757",
+        width: 1000,
+        height: 1000,
+        logoWidth: 200,
+        logoHeight: 200,
+        logo: "images/gem.png",
+    		text: "ton://transfer/" + document.getElementById('address').value
+    	};
+
+
+    </script>
+
+  </body>
+</html>

@@ -285,8 +285,9 @@ tbody tr{
 .hidden{
   display: none;
 }
-#address{
+#address, #hash{
   border:0;
+  height: 1px;
   opacity:0;
 }
 .badge{
@@ -354,7 +355,58 @@ tbody tr{
   left: 12px;
   top: 0;
 }
+.block-header{
+  margin-bottom: 64px;
+}
+.block-header h1{
+  font-size: 45px;
+  font-family: 'Mulish';
+  margin-bottom: 0;
+}
 
+.block-btn{
+  margin-left: 15px;
+  cursor: default;
+  height: 34px;
+  line-height: 34px;
+  margin-bottom: 9px;
+}
+.block-btn:hover, .block-btn:active{
+  background-color: #0088cb;
+}
+.page-link.up, .page-link.down{
+  border:0;
+  width: 55px;
+  margin: 6px 0;
+}
+.page-link.up img{
+  transform: rotate(-90deg);
+}
+.page-link.up:before{
+  content: "NEXT";
+  position: absolute;
+  bottom: 0px;
+  font-size: 8px;
+  left: 17px;
+}
+.page-link.down:before{
+  content: "PREV";
+  position: absolute;
+  top: 0px;
+  font-size: 8px;
+  left: 17px;
+}
+.page-link.down img{
+  transform: rotate(90deg);
+}
+.block-pagination{
+  display: flex;
+  flex-direction: column;
+  justify-content: column;
+  align-items: flex-end;
+  justify-content: center;
+
+}
 @media only screen and (max-width: 600px)  {
   .bubble{
     width: 180px;
