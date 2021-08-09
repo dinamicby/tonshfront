@@ -377,7 +377,7 @@ tbody tr{
 .page-link.up, .page-link.down{
   border:0;
   width: 55px;
-  margin: 6px 0;
+  padding: 12px;
 }
 .page-link.up img{
   transform: rotate(-90deg);
@@ -385,14 +385,14 @@ tbody tr{
 .page-link.up:before{
   content: "NEXT";
   position: absolute;
-  bottom: 0px;
+  bottom: 5px;
   font-size: 8px;
   left: 17px;
 }
 .page-link.down:before{
   content: "PREV";
   position: absolute;
-  top: 0px;
+  top: 5px;
   font-size: 8px;
   left: 17px;
 }
@@ -470,6 +470,7 @@ tbody tr{
     border:0;
     width: 55px;
     margin: 6px 0;
+
   }
   .page-link.up img{
     transform: rotate(0);
