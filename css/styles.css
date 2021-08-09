@@ -402,10 +402,11 @@ tbody tr{
 .block-pagination{
   display: flex;
   flex-direction: column;
-  justify-content: column;
   align-items: flex-end;
   justify-content: center;
-
+}
+.page-link:hover{
+  color: #0072ab;
 }
 @media only screen and (max-width: 600px)  {
   .bubble{
@@ -463,5 +464,40 @@ tbody tr{
   .badge{
     height: 5.5vw;
     line-height: 5.5vw;
+  }
+
+  .page-link.up, .page-link.down{
+    border:0;
+    width: 55px;
+    margin: 6px 0;
+  }
+  .page-link.up img{
+    transform: rotate(0);
+  }
+  .page-link.up:before{
+    content: "NEXT";
+    position: absolute;
+
+    bottom: -10px;
+    font-size: 8px;
+    left: 17px;
+  }
+  .page-link.down:before{
+    content: "PREV";
+    position: absolute;
+    top: auto;
+    bottom: -10px;
+    font-size: 8px;
+    left: 17px;
+  }
+  .page-link.down img{
+    transform: rotate(180deg);
+  }
+  .block-pagination {
+    margin-top: 64px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
   }
 }
