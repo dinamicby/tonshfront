@@ -46,21 +46,6 @@
     <form action="/e/a" accept-charset="UTF-8" method="get">
       <div class="form-group">
           <div class="input-group">
-            <select class="form-control nativeSelect" style="flex: 0.2" >
-              <option>Workchain: 0</option>
-              <option>Workchain: -1</option>
-            </select>
-            <div class="jsSelect" style="display: none;">
-              <div class="js-form-select"  data-state="">
-                <div class="form-select-title"></div>
-                <div class="form-select-content">
-                  <input id="chain1" class="form-select-input" type="radio" name="workchain" checked />
-                  <label for="chain1" tabindex="0" class="form-select-label" data-value="Workchain -1"></label>
-                  <input id="chain2" class="form-select-input" type="radio" name="workchain" />
-                  <label for="chain2" tabindex="0" class="form-select-label" data-value="Workchain 0"></label>
-                </div>
-              </div>
-            </div>
             <input name="q" id="search" type="text" class="form-control" placeholder="For example: EQCD39VS5jcptHL8vMjEXrzGaRcCVYto7HUn4bpAOg8xqB2N">
             <button type="submit" class="btn btn-primary">Search</button>
           </div>
@@ -73,38 +58,7 @@
 
 
       <script src="./js/bootstrap.bundle.min.js"></script>
-      <script>
 
-        const selectSingle = document.querySelector('.js-form-select');
-        const selectSingle_title = selectSingle.querySelector('.form-select-title');
-        const selectSingle_labels = selectSingle.querySelectorAll('.form-select-label');
-
-        selectSingle_title.addEventListener('click', () => {
-          if ('active' === selectSingle.getAttribute('data-state')) {
-            selectSingle.setAttribute('data-state', '');
-          } else {
-            selectSingle.setAttribute('data-state', 'active');
-          }
-        });
-
-        for (let i = 0; i < selectSingle_labels.length; i++) {
-          selectSingle_labels[i].addEventListener('click', (evt) => {
-            selectSingle_title.textContent = evt.target.textContent;
-            selectSingle.setAttribute('data-state', '');
-          });
-        }
-
-        function toggle(className) {
-          var x = document.getElementsByClassName(className);
-          if (x[0].style.display === "none") {
-            x[0].style.display = "block";
-          } else {
-            x[0].style.display = "none";
-          }
-        }
-        toggle('nativeSelect')
-        toggle('jsSelect')
-      </script>
 
   </body>
 </html>
