@@ -37,7 +37,7 @@ p{
 a{
   color: #0088cb;
   text-decoration: none;
-  .f: .2s;
+
 }
 a:hover{
   color: #0072aa;
@@ -386,22 +386,23 @@ tbody tr{
 .block-btn:hover, .block-btn:active{
   background-color: #0088cb;
 }
-.page-link.up, .page-link.down{
+.page-arrow.up, .page-arrow.down{
   border:0;
   height: 34px;
   padding: 2px;
+  margin-top:12px;
 
   display:inline-block;
 }
-.page-link svg{
+.page-arrow svg{
   height: 16px;
 }
-.page-link path{
+.page-arrow path{
   fill: #0088cb;
   transition: .3s;
   -webkit-transition: .3s;
 }
-.page-link.up svg{
+.page-arrow.up svg{
   transform: rotate(0);
   -moz-transform: rotate(0);
   -ms-transform: rotate(0);
@@ -409,7 +410,7 @@ tbody tr{
   -o-transform: rotate(0);
 }
 
-.page-link.down svg{
+.page-arrow.down svg{
   transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -421,12 +422,12 @@ tbody tr{
   margin-top: 12px;
   margin-left: 2px;
 }
-.page-link:hover{
+.page-arrow:hover{
   color: #0072ab;
   background: none;
 }
 
-.page-link:hover path{
+.page-arrow:hover path{
   fill: #303757;
 }
 
@@ -434,7 +435,9 @@ tbody tr{
   margin-left: 4px;
 }
 
-
+.page-link:hover, .page-link:active, .page-link:focus{
+  color: #0088cb;
+}
 .js-form-select {
 	 position: relative;
 	 display: flex;
