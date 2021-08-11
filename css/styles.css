@@ -262,7 +262,9 @@ tbody tr{
 .table>:not(:last-child)>:last-child>*{
   border-bottom: 0;
 }
-
+.table-responsive {
+  overflow-y: hidden;
+}
 .table-responsive th{
   color: #303757;
   font-size: 18px;
@@ -310,6 +312,11 @@ tbody tr{
 }
 .page-link{
   color: #0088ca;
+  width: 120px;
+  text-align: center;
+  border-radius: .25rem;
+  margin-top: 24px;
+  display: inline-block;
 }
 .pagination{
   justify-content: flex-end;
@@ -409,7 +416,7 @@ tbody tr{
   -webkit-transform: rotate(180deg);
   -o-transform: rotate(180deg);
 }
-.block-pagination{
+.loadmore{
   display: inline-block;
   margin-top: 12px;
   margin-left: 2px;
@@ -605,6 +612,28 @@ tbody tr{
 .form-select-label:focus, .form-select-label:active{
   outline: none!important;
   box-shadow: 0!important;
+}
+.text-center{
+  text-align: center;
+}
+.table-responsive[data-hash] + .loadmore{
+  display: block;
+}
+.pagination-block{
+  display: none;
+}
+
+
+
+.animated {
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+    border-color: #fff;
+}
+
+.animated-show{
+  opacity: 1;
+  border-color: #e7eaf3;
 }
 
 @media only screen and (max-width: 600px)  {
