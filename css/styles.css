@@ -122,8 +122,8 @@ td{
   margin-top: 32px;
 }
 .container{
-  max-width: 1000px;
-}
+  max-width: 1400px;
+} 
 
 .header-tagline{
   display: flex;
@@ -308,7 +308,7 @@ tbody tr{
 }
 .badge.bg-danger{
   color: #ec6471;
-  background-color: rgb(220 52 68 / 18%)!important;
+  background-color: rgba(155, 82, 89, 0.18)!important;
 }
 .page-link{
   color: #0088ca;
@@ -543,7 +543,7 @@ tbody tr{
 	 transition: all 0.3s ease-out;
    -webkit-transition: all 0.3s ease-out;
 	 z-index: 1;
-   box-shadow: 0 6px 20px rgb(5 9 49 / 10%);
+   box-shadow: 0 6px 20px rgba(5,9,49,.1);
    border-radius: 8px;
    border-top-left-radius: .25rem;
    border-top-right-radius: .25rem;

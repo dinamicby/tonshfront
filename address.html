@@ -255,176 +255,103 @@
     <script src="./js/bootstrap.bundle.min.js"></script>
     <script src="./js/clipboard.min.js"></script>
     <script src="./js/easy.qrcode.min.js"></script>
+
     <script>
-      new ClipboardJS('.copy');
-      updateToolTips()
-      function copyAddress() {
-        var addressSpan = document.getElementById('spanaddress');
-        var tooltip = bootstrap.Tooltip.getInstance(addressSpan)
-        addressSpan.setAttribute('data-bs-original-title', "Address saved to clipboard")
-        tooltip.show()
-        setTimeout(function(){
-          addressSpan.setAttribute('data-bs-original-title', "Copy address to clipboard")
-          tooltip.hide()
-        }, 2000)
+    new ClipboardJS('.copy');
+    updateToolTips()
+    function copyAddress() {
+      var addressSpan = document.getElementById('spanaddress');
+      var tooltip = bootstrap.Tooltip.getInstance(addressSpan)
+      addressSpan.setAttribute('data-bs-original-title', "Address saved to clipboard")
+      tooltip.show()
+      setTimeout(function(){
+        addressSpan.setAttribute('data-bs-original-title', "Copy address to clipboard")
+        tooltip.hide()
+      }, 2000)
 
-      }
+    }
 
-      // Options
-    	var options = {
-        colorDark : "#303757",
-        width: 1000,
-        height: 1000,
-        logoWidth: 200,
-        logoHeight: 200,
-        logo: "images/gem.png",
-    		text: "ton://transfer/" + document.getElementById('address').value
-    	};
+    // Options
+    var options = {
+      colorDark : "#303757",
+      width: 1000,
+      height: 1000,
+      logoWidth: 200,
+      logoHeight: 200,
+      logo: "/images/gem.png",
+      text: "ton://transfer/" + document.getElementById('address').value
+    };
 
-    	// Create QRCode Object
-    	new QRCode(document.getElementsByClassName("qrcode")[0], options);
+    //document.getElementsByClassName("qrcode")[0].innerHTML = null;
 
+    // Create QRCode Object
+    new QRCode(document.getElementsByClassName("qrcode")[0], options);
 
-      var pageLink = document.getElementById('pagination');
-      pageLink.addEventListener('click', event => {
+    var pageLink = document.getElementById('pagination');
+    pageLink.addEventListener('click', event => {
 
-            var address = document.getElementById('address');
-            var table = document.getElementById('addressTable');
-            var addressTableBody = document.getElementById('addressTableBody');
+          var address = document.getElementById('address');
+          var table = document.getElementById('addressTable');
+          var addressTableBody = document.getElementById('addressTableBody');
 
-            let xhr = new XMLHttpRequest();
+          let xhr = new XMLHttpRequest();
 
-            //xhr.open('GET', `https://api.ton.sh/getTransactions?address=${address.value}&hash=${table.getAttribute("data-hash")}&lt=${table.getAttribute("data-lt")}`);
-            xhr.open('GET', 'data.json')
-            xhr.responseType = 'json';
-            xhr.send();
+          //xhr.open('GET', `/address/${address.value}/tx?hash=${table.getAttribute("data-hash")}&lt=${table.getAttribute("data-lt")}`);
+          xhr.open('GET', `data.html`);
+          xhr.responseType = 'text';
+          xhr.send();
 
-            xhr.onload = function() {
+          xhr.onload = function() {
             let responseObj = xhr.response;
-            console.log(responseObj)
 
-
-            for(i in responseObj.result){
-              let tx = responseObj.result[i]
-
-              let  type = '<td><span class="badge bg-success">IN</span></td>'
-              let to = address.value
-              if(tx.sent.length != 0){
-                 type = '<td><span class="badge bg-danger">OUT</span></td>';
-                 to = tx.sent[0].to
-              }
-              let from = tx.received.from
-
-              //FROM
-
-              let addressFromRow = `
-              <td class="colla">
-                <div data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="${from}" class="colla">
-                  <a href="/e/a/${from}">${from}</a>
-                </div>
-              </td>
-              `
-
-              if(from == address.value || from == 'external'){
-                addressFromRow = `<td class="colla">${from}</td>`
-              }
-
-              // TO
-
-              let addressToRow = `
-              <td class="colla">
-                <div data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="${to}" class="colla">
-                  <a href="/e/a/${to}">${to}</a>
-                </div>
-              </td>
-              `
-              if(to == address.value){
-                addressToRow = `<td class="colla">${to}</td>`
-              }
-
-
-              let message = '';
-              if(tx.received.message){
-                 message = tx.received.message
-              }
-              if(tx.sent.message){
-                 message = tx.sent.message
-              }
-              let row = `
-                <td data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="${Date(tx.timestamp).toLocaleString('en-GB', { hour12: false })}"><small>${timeDifference(parseInt(new Date()/1000), tx.timestamp)}</small></td>
-                ${addressFromRow}
-                ${type}
-                ${addressToRow}
-                <td data-bs-toggle="tooltip" data-bs-placement="top" title="" data-bs-original-title="Fees: ${(tx.other_fee/10**9).toString()} (transaction fee), ${tx.storage_fee/10**9} (storage fee)">${tx.received.nanoton/10**9}</td>
-                <td class="colla">${message}</td>
-              `
-              let div = document.createElement('tr');
-              div.classList.add('animated');
-              div.innerHTML = row;
-              addressTableBody.append(div);
-              setTimeout(function(){
-                div.classList.add('animated-show');
-              }, 30*i)
-
+            if (xhr.status != 200) {
+              document.getElementsByClassName('loadmore')[0].hidden = true;
+              return false;
             }
-            updateToolTips()
-            if(responseObj.previous_transaction){
+
+            let tbody = document.getElementsByTagName('tbody')[0];
+
+            tbody.innerHTML = tbody.innerHTML + responseObj;
+
+            let nexthash = document.getElementsByClassName('.nexthash');
+            let nextlt = document.getElementsByClassName('.nextlt');
+            let hidebtn = document.getElementsByClassName('.hidebtn');
+
+            if (last_hash = nexthash[nexthash.length - 1]) {
+              table.setAttribute("data-hash", last_hash.value)
+            }
+
+            if (last_lt = nextlt[nextlt.length - 1]) {
+              table.setAttribute("data-lt", last_lt.value)
+            }
+
+            if (hidebtn[hidebtn.length - 1]) {
+              document.getElementsByClassName('loadmore')[0].hidden = true;
+            }
+
+            updateToolTips();
+            /*if(responseObj.previous_transaction){
               table.setAttribute("data-hash", responseObj.previous_transaction.hash)
               table.setAttribute("data-lt", responseObj.previous_transaction.lt)
             }else{
               table.removeAttribute("data-hash")
               table.removeAttribute("data-lt")
               let btn = document.getElementsByClassName('loadmore')[0].hidden = true;
-
-            }
-
-          };
+            }*/
+        };
 
 
-            return false;
-      });
-      function updateToolTips(){
-         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-         var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-          return new bootstrap.Tooltip(tooltipTriggerEl)
-        })
-      }
+          return false;
+    });
+    function updateToolTips(){
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+      })
+    }
 
-      function timeDifference(current, previous) {
-        var msPerMinute = 60 * 1000;
-        var msPerHour = msPerMinute * 60;
-        var msPerDay = msPerHour * 24;
-        var msPerMonth = msPerDay * 30;
-        var msPerYear = msPerDay * 365;
+  </script>
 
-        var elapsed = current - previous;
-
-        if (elapsed < msPerMinute) {
-             return Math.round(elapsed/1000) + ' seconds ago';
-        }
-
-        else if (elapsed < msPerHour) {
-             return Math.round(elapsed/msPerMinute) + ' minutes ago';
-        }
-
-        else if (elapsed < msPerDay ) {
-             return Math.round(elapsed/msPerHour ) + ' hours ago';
-        }
-
-        else if (elapsed < msPerMonth) {
-            return '' + Math.round(elapsed/msPerDay) + ' days ago';
-        }
-
-        else if (elapsed < msPerYear) {
-            return '' + Math.round(elapsed/msPerMonth) + ' months ago';
-        }
-
-        else {
-            return '' + Math.round(elapsed/msPerYear ) + ' years ago';
-        }
-      }
-
-    </script>
 
   </body>
 </html>
